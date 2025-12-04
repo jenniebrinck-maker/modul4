@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grand Hotel — Hitta hit</title>
+  <meta name="description" content="Grand Hotel ligger centralt i staden. Se karta och kontaktinformation här." />
+
+  <!-- Länk till CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <img src="logo.webp" alt="Grand Hotel logotyp">
+    </div>
+    <div class="header-image">
+      <img src="hotel.webp" alt="Grand Hotel byggnad">
+    </div>
+  </div>
+</header>
+
+<!-- HAMBURGER MENY FÖR MOBIL -->
+<button class="hamburger" id="hamburger" aria-label="Öppna meny" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- NAVIGATION -->
+<nav class="main-nav" id="nav-menu">
+  <ul>
+    <li><a href="index.html" aria-current="page">Välkommen</a></li>
+    <li><a href="boka.html">Boka</a></li>
+    <li><a href="hitta-hit.html">Hitta hit</a></li>
+    <li><a href="kontakta.html">Kontakta</a></li>
+    <li><a href="restaurang.html">Restaurang</a></li>
+    <li><a href="spa.html">Spa</a></li>
+    <li><a href="aktiviteter.html">Aktiviteter</a></li>
+   <li><a href="konferens.html">Konferens</a></li> 
+    <li><a href="bilder.html">bilder</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN -->
+<main class="container hitta-hit-page">
+  <h1>Hitta hit</h1>
+  <p>Grand Hotel ligger centralt och lättillgängligt. Se kartan nedan och planera din resa.</p>
+
+  <!-- GOOGLE MAPS EMBED -->
+  <section class="map-section">
+    <iframe
+      title="Karta över Grand Hotel"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.073934142975!2d18.06324017620365!3d59.332580582405824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d2f6d4b7b3f%3A0xe9e2f2c7c5a4d49!2sGrand%20Hotel%20Stockholm!5e0!3m2!1ssv!2sse!4v1701300000000!5m2!1ssv!2sse"
+      width="50%" height= "350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </section>
+
+  <section class="contact-info">
+    <h2>Kontaktinformation</h2>
+    <p>Adress: Storgatan 1, 111 22 Stad</p>
+    <p>Telefon: <a href="tel:+46123456789">+46 12 345 6789</a></p>
+    <p>E-post: <a href="mailto:info@grandhotel.se">info@grandhotel.se</a></p>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>Kontakt: Grand Hotel, Storgatan 1, 111 22 Stad — Tel: +46 12 345 6789</p>
+  <p>&copy; <span id="year"></span> Grand Hotel — Alla rättigheter förbehållna</p>
+</footer>
+
+<script src="js/script.js" defer></script>
+
+<script>
+  // Automatisk uppdatering av år
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Hamburger-meny funktionalitet
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  hamburger.addEventListener("click", () => {
+    const expanded = hamburger.getAttribute("aria-expanded") === "true" || false;
+    hamburger.setAttribute("aria-expanded", !expanded);
+    navMenu.classList.toggle("active");
+  });
+
+  // Stäng meny vid klick på länk
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      hamburger.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+
